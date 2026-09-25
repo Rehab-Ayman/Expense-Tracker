@@ -57,3 +57,37 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+# Expense Tracker
+
+## How to Run
+
+### 1. Install JSON Server
+
+Open the terminal and run:
+
+```bash
+npm install -g json-server
+```
+
+### 2. Run JSON Server
+
+From the project folder, run:
+
+```bash
+json-server --watch db.json
+```
+
+### 3. Run Angular
+
+Open another terminal in the project folder and run:
+
+```bash
+ng serve
+```
+
+Then open the application in your browser at:
+
+```text
+http://localhost:4200
+```
