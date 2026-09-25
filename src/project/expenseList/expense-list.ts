@@ -1,11 +1,12 @@
 import { Component, inject, OnInit, signal, computed } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ExpenseService } from '../../services/expense';
 import { RouterLink } from '@angular/router';
 import { HighlightOverBudget } from '../directives/highlight-over-budget';
 import { CategoryPipe } from '../pipes/category-pipe';
 
 @Component({
-  imports: [RouterLink, CategoryPipe, HighlightOverBudget],
+  imports: [CommonModule, RouterLink, CategoryPipe, HighlightOverBudget],
   selector: 'app-expense-list',
   styleUrl: './expense-list.css',
   templateUrl: './expense-list.html',
@@ -15,6 +16,9 @@ export class ExpenseList implements OnInit {
 
   categoryFilter = signal<string>('All');
   sortBy = signal<string>('date');
+  runningTotal = computed(() => {
+    return this.filteredExpenses().reduce((sum, item) => sum + item.amount, 0);
+  });
 
   filteredExpenses = computed(() => {
     let list = this.expenseService.expenses();

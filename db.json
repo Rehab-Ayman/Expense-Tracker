@@ -1,18 +1,25 @@
 {
   "expenses": [
     {
-      "amount": 25,
-      "category": "Food",
-      "date": "2026-09-03",
-      "note": "m",
-      "id": "nyHEtZY4RfU"
-    },
-    {
       "amount": 1,
       "category": "Transport",
       "date": "2026-08-31",
       "note": "",
       "id": "pwlLttjhAKQ"
+    },
+    {
+      "amount": 4,
+      "category": "Food",
+      "date": "2026-09-09",
+      "note": "",
+      "id": "Llf8BzHYhHQ"
+    },
+    {
+      "amount": 22,
+      "category": "Other",
+      "date": "2026-09-01",
+      "note": "",
+      "id": "FxlsHUAX4II"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
