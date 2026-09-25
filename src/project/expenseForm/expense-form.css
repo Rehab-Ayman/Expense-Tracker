@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+h2,
+p,
+button {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #293681;
+  background-color: #c4e2f5;
+  height: 90vh;
+}
+form {
+  width: 700px;
+  margin: 10px auto;
+  height: 70vh;
+  padding: 15px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  display: block;
+  margin-bottom: 2px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2c5ead;
+}
+
+button {
+  width: 100%;
+  padding: 5px;
+  border: none;
+  margin-top: 10px;
+  border-radius: 6px;
+  background-color: #2c5ead;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #112e81;
+}

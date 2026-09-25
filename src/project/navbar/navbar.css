@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+* {
+  font-family: 'Instrument Serif', serif;
+  font-weight: 400;
+  font-style: normal;
+}
+nav {
+  background-color: #112e81;
+}
+a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+div a {
+  margin: 0 20px;
+}
+.right {
+  display: flex;
+  justify-content: right;
+  margin-right: 120px;
+}

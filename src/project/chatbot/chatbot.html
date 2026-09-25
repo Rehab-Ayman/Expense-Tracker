@@ -1,0 +1,53 @@
+<button
+  class="btn btn-primary rounded-circle shadow-lg position-fixed bottom-0 end-0 m-4 p-0 d-flex align-items-center justify-content-center"
+  style="width: 60px; height: 60px; z-index: 1050; cursor: pointer;" (click)="toggleSidebar()">
+  <span style="font-size: 28px;">🤖</span>
+</button>
+@if (isOpen()) {
+<div class="offcanvas-backdrop fade show" (click)="toggleSidebar()"></div>
+}
+<div class="offcanvas offcanvas-end show shadow-lg" [class.show]="isOpen()" tabindex="-1"
+  style="visibility: visible; z-index: 1055; transition: transform 0.3s ease-in-out;"
+  [style.transform]="isOpen() ? 'translateX(0)' : 'translateX(100%)'">
+  <div class="offcanvas-header bg-primary text-white">
+    <h5 class="offcanvas-title d-flex align-items-center gap-2">
+      <span>🤖</span> AI Expense Assistant
+    </h5>
+    <button type="button" class="btn-close btn-close-white" (click)="toggleSidebar()"></button>
+  </div>
+
+  <div class="offcanvas-body d-flex flex-column p-0 bg-light">
+    <div class="flex-grow-1 p-3 overflow-auto">
+      @for (msg of messages(); track $index) {
+      <div class="d-flex mb-3" [class.justify-content-end]="msg.sender === 'user'">
+        <div class="p-3 rounded-3 text-wrap" style="max-width: 80%; font-size: 14px;"
+          [ngClass]="msg.sender === 'user' ? 'bg-primary text-white' : 'bg-white text-dark shadow-sm border'">
+          <strong class="d-block mb-1 small" [class.text-white-50]="msg.sender === 'user'"
+            [class.text-muted]="msg.sender === 'ai'">
+            {{ msg.sender === 'user' ? 'You' : 'AI Assistant' }}
+          </strong>
+          <div>{{ msg.text }}</div>
+        </div>
+      </div>
+      }
+
+      @if (isLoading()) {
+      <div class="d-flex mb-3">
+        <div class="p-3 bg-white text-dark shadow-sm border rounded-3 small">
+          <span class="spinner-border spinner-border-sm text-primary me-2" role="status"></span>
+          Thinking and analyzing your expenses...
+        </div>
+      </div>
+      }
+    </div>
+    <div class="p-3 bg-white border-top">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Ask AI about your expenses..." [ngModel]="newMessage()"
+          (ngModelChange)="newMessage.set($event)" (keyup.enter)="send()" [disabled]="isLoading()" />
+        <button class="btn btn-primary" (click)="send()" [disabled]="isLoading() || !newMessage().trim()">
+          Send
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
